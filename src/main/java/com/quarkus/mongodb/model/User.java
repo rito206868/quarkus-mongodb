@@ -13,6 +13,10 @@ public class User extends PanacheMongoEntity {
 		this.name = name;
 		this.mobile = mobile;
 	}
+	
+	public User() {
+		
+	}
 
     // entity methods
     public static User findByName(String name) {
