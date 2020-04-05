@@ -14,6 +14,10 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.quarkus.mongodb.repository.ServiceRepository;
 import com.quarkus.mongodb.model.User;
 
@@ -22,36 +26,43 @@ import com.quarkus.mongodb.model.User;
 @Consumes(MediaType.APPLICATION_JSON)
 public class ServiceController {
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(ServiceController.class);
+
 	@Inject
 	ServiceRepository serviceRepository;
 
 	@GET
 	@Path("/search")
 	public List<User> findAllUser() {
+		  LOGGER.info("All user search");
 		return serviceRepository.findAll();
 	}
 
 	@GET
 	@Path("/search/{name}")
-	public User findUser(String name) {
+	public User findUser(@PathParam("name") String name) {
+		  LOGGER.info("Specific user search");
 		return serviceRepository.findByName(name);
 	}
 
 	@POST
 	@Path("/save")
 	public Response saveUser(@Valid User user) {
+		  LOGGER.info("Create user");
 		return serviceRepository.save(user);
 	}
 
 	@PUT
 	@Path("/update/{name}")
 	public Response updateUser(@PathParam("name") String name, @Valid User user) {
+		  LOGGER.info("Update user");
 		return serviceRepository.update(name, user);
 	}
 
 	@DELETE
 	@Path("/delete/{name}")
-	public Response deleteUser(String name) {
+	public Response deleteUser(@PathParam("name") String name) {
+		  LOGGER.info("Delete user");
 		return serviceRepository.delete(name);
 	}
 
