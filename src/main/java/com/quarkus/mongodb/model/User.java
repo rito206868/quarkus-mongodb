@@ -7,9 +7,9 @@ import io.quarkus.mongodb.panache.PanacheMongoEntity;
 public class User extends PanacheMongoEntity {
 
 	public String name;
-	public Integer mobile;
+	public String mobile;
 
-	public User(String name, Integer mobile) {
+	public User(String name, String mobile) {
 		this.name = name;
 		this.mobile = mobile;
 	}
@@ -31,11 +31,11 @@ public class User extends PanacheMongoEntity {
 		this.name = name;
 	}
 
-	public Integer getMobile() {
+	public String getMobile() {
 		return mobile;
 	}
 
-	public void setMobile(Integer mobile) {
+	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
 
