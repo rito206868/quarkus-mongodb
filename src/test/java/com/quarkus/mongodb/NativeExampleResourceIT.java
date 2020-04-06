@@ -1,4 +1,4 @@
-package io.andre.quarkus;
+package com.quarkus.mongodb;
 
 import io.quarkus.test.junit.NativeImageTest;
 

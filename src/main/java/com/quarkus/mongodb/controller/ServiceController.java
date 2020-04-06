@@ -65,5 +65,11 @@ public class ServiceController {
 		  LOGGER.info("Delete user");
 		return serviceRepository.delete(name);
 	}
+	
+	   	@GET
+	   	@Path("/hello")
+	    public String hello() {
+	        return "hello";
+	    }
 
 }

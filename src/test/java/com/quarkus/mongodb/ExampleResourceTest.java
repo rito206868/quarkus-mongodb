@@ -1,4 +1,4 @@
-package io.andre.quarkus;
+package com.quarkus.mongodb;
 
 import static io.restassured.RestAssured.given;
 
@@ -12,7 +12,7 @@ public class ExampleResourceTest {
     @Test
     public void testHelloEndpoint() {
         given()
-          .when().get("/hello")
+          .when().get("/user/hello")
           .then()
              .statusCode(200);
     }
